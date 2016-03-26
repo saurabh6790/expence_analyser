@@ -10,13 +10,10 @@ app.config['MYSQL_DATABASE_DB'] = 'expence_analyzer'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
-@app.route("/")
-def home():
-	return render_template("welcome.html")
 	
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def login():
-	error = None
+	error = ''
 	if request.method == "POST":
 		username = request.form['username']
 		password = request.form['password']
